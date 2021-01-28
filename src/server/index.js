@@ -1,3 +1,11 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
+// API Credentials
+let apiKey = {
+    meaningCloud_key: process.env.API_Key
+};
+
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
