@@ -1,6 +1,6 @@
 import { postData } from './js/post'
 import { handleSubmit } from './js/formHandler'
-import { updateLayout } from './js/formHandler'
+import { updateLayout } from './js/updateLayout'
 
 import './styles/resets.scss'
 import './styles/base.scss'
