@@ -16,10 +16,11 @@
 
     <main>
         <section id="submitForm">
-            <form id="form" onsubmit="return Client.handleSubmit(event)">
+            <form id="form" >
                 <textarea id="submission" type="text" name="input" value="" placeholder="Insert text here."></textarea>
                 <input id="button" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)"
                     onsubmit="return Client.handleSubmit(event)">
+                <button id="return" onclick="return Client.updateLayout()">return</button>
             </form>
         </section>
 
@@ -64,10 +65,6 @@
             </div>
         </section>
     </main>
-
-    <footer>
-        <p>This is a footer</p>
-    </footer>
 
 </body>
 
