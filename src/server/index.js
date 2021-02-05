@@ -1,28 +1,34 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
-// API Credentials
-let apiKey = {
-    meaningCloud_key: process.env.API_Key
-};
-
-
-var path = require('path')
+const dotenv = require('dotenv')
+const path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-var bodyParser = require('body-parser')
-var cors = require('cors')
-
+const bodyParser = require('body-parser')
+const cors = require('cors')
 const app = express()
+
+dotenv.config()
+
 app.use(cors())
+
 // to use json
 app.use(bodyParser.json())
+
 // to use url encoded values
 app.use(bodyParser.urlencoded({
     extended: true
 }))
 
 app.use(express.static('dist'))
+
+// API Credentials
+let apiKey = {
+    meaningCloud_key: process.env.API_Key
+};
+
+console.log(apiKey)
+
+
+
 
 console.log(__dirname)
 
@@ -43,8 +49,6 @@ app.get('/test', function (req, res) {
 // Pulling sentence from site and pushing to api
 const siteText = [];
 
-console.log(`::: Current Text: ${siteText} :::`);
-
 app.post('/add', (req, res) => {
     siteText.push(req.body);
 })
@@ -52,13 +56,12 @@ app.post('/add', (req, res) => {
 
 
 app.get('/sentiment', function (request, response) {
-    var https = require('follow-redirects').https;
-    var fs = require('fs');
+    const https = require('follow-redirects').https;
+    const fs = require('fs');
 
     let txt = encodeURIComponent(siteText.slice(-1)[0].info);
-    console.log(txt);
 
-    var options = {
+    let options = {
         'method': 'POST',
         'hostname': 'api.meaningcloud.com',
         'path': `/sentiment-2.1?key=${apiKey.meaningCloud_key}&lang=en&txt=${txt}`,
@@ -66,16 +69,16 @@ app.get('/sentiment', function (request, response) {
         'maxRedirects': 20
     };
 
-    var req = https.request(options, function (res) {
-        var chunks = [];
+    const req = https.request(options, function (res) {
+        let chunks = [];
 
         res.on("data", function (chunk) {
             chunks.push(chunk);
         });
 
         res.on("end", function (chunk) {
-            var body = Buffer.concat(chunks).toString();
-            var JSONres = JSON.parse(body);
+            let body = Buffer.concat(chunks).toString();
+            let JSONres = JSON.parse(body);
             response.send(JSONres);
         });
 

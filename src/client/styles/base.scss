@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300;400&family=Yeseva+One&display=swap');
+
+$primary-font: 'Yeseva One', serif;
+$main-font: 'Merriweather Sans', sans-serif;
+$heading-font: 'Merriweather', serif;
+$main-color: #37424A;
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    line-height: 1.3;
+    max-width: 1024px;
+    margin: auto;
 }
 
 main {
@@ -10,5 +20,113 @@ main {
 
 section {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 25px auto;
+}
+
+h1 {
+    font-family: $primary-font;
+    font-size: 48px;
+}
+
+h2 {
+    font-family: $heading-font;
+    font-size: 14px;
+}
+
+p {
+    font-family: $main-font;
+    font-weight: 300;
+}
+
+// RESULTS
+#results {
+    visibility: hidden;
+    transition: visibility 0s, opacity 1s linear;
+    color: $main-color;
+
+    #results-heading {
+        font-size: 26px;
+        font-family: $primary-font;
+        text-align: center;
+    }
+
+    #categories {
+
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 0px;
+            min-width: 45%;
+            min-height: 100px;
+        }
+
+        .category {
+            border: 1px dashed $main-color;
+            text-align: center;
+            padding: 15px 15px;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 20px;
+        }
+
+    }
+
+    #polarity-heading {
+        margin: 20px 0px 15px 0px;
+        border-bottom: 1px dashed $main-color;
+        padding-bottom: 3px;
+    }
+    
+    #submittedText {
+        padding: 15px 0px;
+    }
+
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0px auto;
+    padding: 10px 0px;
+
+    .item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .color {
+        height: 15px;
+        width: 15px;
+        margin-right: 5px;
+    }
+
+    .name {
+        font-family: $heading-font;
+        font-size: 11px;
+    }
+}
+
+.strongPos {
+    background-color: rgba(28, 172, 120, 0.5);
+}
+
+.pos {
+    background-color: rgba(28, 172, 120, 0.2);
+}
+
+.neu {
+    background-color: rgba(252, 232, 131, 0.3);
+}
+
+.neg {
+    background-color: rgba(237, 37, 78, 0.2);
+}
+
+.strongNeg {
+    background-color: rgba(237, 37, 78, 0.5);
 }
