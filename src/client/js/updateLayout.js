@@ -13,6 +13,7 @@ function updateLayout() {
         document.getElementById('button').style.display = 'block';
         document.getElementById('return').style.display = 'none';
     }
+    return 'Layout updated'
 }
 
 export {
