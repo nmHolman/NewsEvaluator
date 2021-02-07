@@ -1,5 +1,5 @@
 const { TestScheduler } = require('jest');
-import { updateLayout } from './updateLayout.js'
+import { updateLayout } from './updateLayout.js';
 
 
 test('Successfully updates layer', () => {  

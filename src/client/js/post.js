@@ -13,7 +13,10 @@ const postData = async (url, data) => {
         },
 
         body: JSON.stringify(ndata),
+
     });
+
+    return "Success";
 };
 
 export { postData }
