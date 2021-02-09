@@ -1,11 +1,9 @@
 {
-  "name": "example-project",
+  "name": "sentiment-text-eval",
   "version": "1.0.0",
   "main": "index.js",
-  "jest" : {
-    "globals": {
-      "__Client__": ""
-    }
+  "jest": {
+    "setupFilesAfterEnv": ["./jest.setup.Client.js"]
   },
   "scripts": {
     "test": "jest",

@@ -1,0 +1,1 @@
+global.Client = jest.genMockFromModule('./src/client/js/jestUtils.js');
